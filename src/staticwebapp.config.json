@@ -2,17 +2,22 @@
   "routes": [
     {
       "route": "/authenticate/index.html",
-      "allowedRoles": ["authenticated"]
+      "allowedRoles": ["authenticated"],
+       "forwardingGateway": {
+       "allowedForwardedHosts": [ "www.tonytech.in",
+        "jolly-glacier-0ab10b910.5.azurestaticapps.net"
+         ]
+ }
     },
        {
-   "route": "/login",
+   "route": "authenticate/login",
        "rewrite": "/.auth/login/aad"
 }
   ],
   "responseOverrides": {
     "401": {
       "statusCode": 302,
-      "redirect": "https://www.tonytech.in/login?post_login_redirect_uri=https://www.tonytech.in/index.html"
+      "redirect": "https://www.tonytech.in/login?post_login_redirect_uri=https://www.tonytech.in/authenticate/index.html"
     },
     
     "404": {

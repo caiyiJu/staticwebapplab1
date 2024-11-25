@@ -9,6 +9,10 @@
          ]
  }
     },
+        {
+      "route": "/*",
+      "allowedRoles": ["authenticated"]
+    },
        {
    "route": "authenticate/login",
        "rewrite": "/.auth/login/aad"
